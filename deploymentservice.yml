@@ -35,3 +35,25 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 3000
+
+---
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: node-route
+  namespace: default
+spec:
+  parentRefs:
+  - name: nginx-gateway
+    namespace: nginx-gateway
+  hostnames:
+  - node.kishoreweb.com 
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    backendRefs:
+    - name: nodeapp-service
+      port: 5000
