@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: thakishore/nodeapp:latest
+        image: thetips4you/nodeapp:latest
         ports:
         - containerPort: 3000
         
@@ -30,10 +30,8 @@ metadata:
 spec:
   selector:
     app: nodeapp 
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - protocol: TCP
     port: 5000
     targetPort: 3000
-    - name: nodeapp-service
-      port: 5000
