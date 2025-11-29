@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nodeserver
-        image: thakishore/nodeapp:v1.2
+        image: thakishore/nodeapp:v1.3
         ports:
         - containerPort: 3000
 
